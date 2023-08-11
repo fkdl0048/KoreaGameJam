@@ -3,19 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseDownTest : MonoBehaviour
+public class InteractionController : MonoBehaviour
 {
     private Camera mainCamera;
-    
-    private Renderer renderer;
-    
+
     private Ray ray;
     private RaycastHit hit;
     
     private void Awake()
     {
         mainCamera = Camera.main;
-        renderer = GetComponent<Renderer>();
     }
     
     private void Update()
@@ -25,9 +22,9 @@ public class MouseDownTest : MonoBehaviour
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("Test"))
+                if (hit.collider.CompareTag("Selectable"))
                 {
-                    renderer.material.color = Color.red;
+                    Debug.Log("??");
                 }
             }
         }
