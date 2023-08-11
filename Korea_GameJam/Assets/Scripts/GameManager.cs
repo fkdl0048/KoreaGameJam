@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField]
+    private Camera mainCamera;
+    
+    // Test
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            mainCamera.transform.rotation = Quaternion.Euler(0, -30, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            mainCamera.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            mainCamera.transform.rotation = Quaternion.Euler(0, 30, 0);
+        }
     }
 }
