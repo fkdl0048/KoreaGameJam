@@ -18,6 +18,9 @@ public class ProjecterMission : BaseMission
 
     private void Update()
     {
+        if (IsClear)
+            return;
+        
         if (projectObjects[0].IsClear && projectObjects[1].IsClear)
         {
             MissionEnd();

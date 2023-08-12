@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DragPlug : MonoBehaviour
 {
+    private PlugMission plugMission;
     public bool IsStart { get; set; } = false;
     
     private Vector3 offSet;
@@ -16,6 +17,8 @@ public class DragPlug : MonoBehaviour
     private void Awake()
     {
         originPos = transform.position;
+
+        plugMission = GetComponentInParent<PlugMission>();
     }
 
     private void OnMouseDown()
@@ -61,8 +64,8 @@ public class DragPlug : MonoBehaviour
     {
         if (other.CompareTag("MissionObject"))
         {
-            Debug.Log("?????????"); // temp
             IsStart = true;
+            plugMission.MissionEnd();
         }
     }
 }

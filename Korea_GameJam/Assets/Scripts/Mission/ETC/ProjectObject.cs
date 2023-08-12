@@ -29,7 +29,7 @@ public class ProjectObject : MonoBehaviour
         
         offSet = gameObject.transform.position - GetMouseWorldPos();
         
-        transform.DOLocalRotate(new Vector3(0 , 0, 0), 0.3f);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     
     private Vector3 GetMouseWorldPos()
