@@ -8286,10 +8286,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 136268122}
     m_Modifications:
+    - target: {fileID: 150974106, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.10000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 150974106, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.10000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 150974106, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Size.z
+      value: 0.14706333
+      objectReference: {fileID: 0}
+    - target: {fileID: 150974106, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Center.x
+      value: -0.000000021290678
+      objectReference: {fileID: 0}
+    - target: {fileID: 150974106, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Center.z
+      value: 0.065259114
+      objectReference: {fileID: 0}
     - target: {fileID: 1554936430, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
       propertyPath: inGameCameraController
       value: 
       objectReference: {fileID: 235620086}
+    - target: {fileID: 1749107712, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.38192406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749107712, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.4193514
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749107712, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Size.z
+      value: 0.6643074
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749107712, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Center.x
+      value: -3.1280015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749107712, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Center.y
+      value: -0.7235172
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749107712, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
+      propertyPath: m_Center.z
+      value: 2.7929034
+      objectReference: {fileID: 0}
     - target: {fileID: 7009376669435299862, guid: f8d769adc1558964e977c8b7e3f864a2, type: 3}
       propertyPath: m_IsActive
       value: 0
