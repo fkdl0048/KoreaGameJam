@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissionManager001 : MonoBehaviour
+public class MissionManager_002 : MonoBehaviour
 {
 
     public GameObject powerPlugUI;
