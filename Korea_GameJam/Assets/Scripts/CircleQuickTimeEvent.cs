@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class CircleQuickTimeEvent : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class CircleQuickTimeEvent : MonoBehaviour
         //{
 
         value += speed * Time.deltaTime;
+        value = value % 100f;
         angle = -value / 100 * 360;
         arrow.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 

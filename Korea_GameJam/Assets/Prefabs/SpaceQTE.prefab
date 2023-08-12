@@ -588,6 +588,8 @@ MonoBehaviour:
   end: {r: 0.9716981, g: 0.8624774, b: 0, a: 1}
   clear: {r: 0, g: 0.8018868, b: 0.07352677, a: 1}
   selfCanvas: {fileID: 3114141391006078277}
+  spaceUI1: {fileID: 8502258305373338071}
+  spaceUI2: {fileID: 4172390711904670656}
   gage: 0
   spaceBarCnt: 0
   isSuccess: 0
