@@ -54,10 +54,20 @@ public class InGameCameraController : MonoBehaviour
         }
     }
     
-    private void DisAbleArrow()
+    public void DisAbleArrow()
     {
         leftArrow.SetActive(false);
         rightArrow.SetActive(false);
+    }
+    
+    public void AbleArrow()
+    {
+        SetLookArrow();
+    }
+    
+    public void SetLookatCenter()
+    {
+        CameraLookAt = LookAt.Center;
     }
     
     public void ClickLeftLookArrow()

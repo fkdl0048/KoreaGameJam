@@ -24,7 +24,6 @@ public class InteractionController : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Selectable"))
                 {
-                    Debug.Log("??");
                     hit.collider.GetComponent<BaseMission>().MissionStart();
                 }
             }

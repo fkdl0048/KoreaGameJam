@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Test
   - Selectable
+  - Mission
+  - MissionObject
   layers:
   - Default
   - TransparentFX
