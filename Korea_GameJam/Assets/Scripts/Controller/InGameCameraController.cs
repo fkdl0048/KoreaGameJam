@@ -21,6 +21,10 @@ public class InGameCameraController : MonoBehaviour
     [SerializeField] private GameObject leftArrow;
     [SerializeField] private GameObject rightArrow;
     
+    [SerializeField] private Vector3 cameraPositionOrigin;
+    [SerializeField] private Vector3 cameraRotationOrigin;
+    
+    
     private LookAt cameraLookAt = LookAt.Center;
     public LookAt CameraLookAt
     {

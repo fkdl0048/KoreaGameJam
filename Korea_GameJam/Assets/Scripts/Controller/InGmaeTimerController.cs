@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InGmaeTimerController : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class InGmaeTimerController : MonoBehaviour
     {
         if (timer <= 0f)
         {
-            
+            SceneManager.LoadScene("GameOver");
             // temp Game Over
             return;
         }

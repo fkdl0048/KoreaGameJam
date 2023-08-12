@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonMission : BaseMission
 {
@@ -35,6 +36,7 @@ public class ButtonMission : BaseMission
                 subMission.SetActiveMission();
                 subMission.OnSuccess += () =>
                 {
+                    SceneManager.LoadScene("GameClear");
                     MissionEnd();
                 };
             }
