@@ -18,7 +18,7 @@ public class MissionController : MonoBehaviour
     
     private void AllMissionClearCheck()
     {
-        for (int i = 0; i < missions.Length; i++)
+        for (int i = 0; i < 5; i++)
         {
             if (missions[i].IsClear)
                 cubes[i].SetActive(true);
