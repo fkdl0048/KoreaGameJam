@@ -11,6 +11,8 @@ public class BaseMission : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Vector3 cameraPosition;
     [SerializeField] private Vector3 cameraRotation;
+
+    public bool IsClear { get; set; } = false;
     
     private Vector3 cameraPositionOrigin;
     private Vector3 cameraRotationOrigin;
@@ -26,15 +28,15 @@ public class BaseMission : MonoBehaviour
 
     public virtual void MissionStart()
     {
-        Debug.Log("Mission Start");
         MoveCamera();
         gameObject.tag = "Mission";
     }
     
     public virtual void MissionEnd()
     {
-        Debug.Log("Mission End");
-        MoveCameraOrigin();
+        DOVirtual.DelayedCall(0.5f, () => MoveCameraOrigin());
+        
+        IsClear = true;
     }
     
     private void MoveCamera()
