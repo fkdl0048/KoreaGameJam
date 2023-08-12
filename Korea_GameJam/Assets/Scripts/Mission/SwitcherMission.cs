@@ -6,6 +6,8 @@ public class SwitcherMission : BaseMission
 {
     [SerializeField] private SwitcherTV switcherTV;
     [SerializeField] private SwitcherButton[] switcherButtons;
+    
+    [SerializeField] private SpaceBarQuickTimeEvent subMission;
     public bool IsStart { get; set; }
 
     private BoxCollider boxCollider;
@@ -50,8 +52,13 @@ public class SwitcherMission : BaseMission
     {
         if (switcherButtons[1].ButtonState == ButtonState.On)
         {
-            switcherTV.TvTextureChange();
-            MissionEnd();
+            subMission.SetActiveMission();
+            subMission.OnSuccess += () =>
+            {
+                IsStart = false;
+                switcherTV.TvTextureChange();
+                MissionEnd();
+            };
             return true;
         }
         else

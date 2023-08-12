@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
+using Random = UnityEngine.Random;
 
 public class CircleQuickTimeEvent : MonoBehaviour
 {
+    public Action OnSuccess;
+    
     public float speed;
     public float checkRange;
     public Canvas selfCanvas;
@@ -22,12 +26,11 @@ public class CircleQuickTimeEvent : MonoBehaviour
     [SerializeField]
     private float angle = 0;    //0~360
     [SerializeField]
-    private bool isSuccess = false;
-    [SerializeField]
     private bool[] check = new bool[3];
     [SerializeField]
     bool panaltyTime = false;
 
+    public bool IsSuccess { get; set; }
 
 
     private float[] checkPoint = new float[3];
@@ -40,12 +43,18 @@ public class CircleQuickTimeEvent : MonoBehaviour
 
     private void Awake()
     {
+
+    }
+
+    private void OnEnable()
+    {
         SetCheckPointValue();
 
         circle[0].fillAmount = checkRange / 100f;
         circle[1].fillAmount = checkRange / 100f;
         circle[2].fillAmount = checkRange / 100f;
-
+        
+        OnSuccess = null;
     }
 
     // Update is called once per frame
@@ -56,14 +65,14 @@ public class CircleQuickTimeEvent : MonoBehaviour
             return;
         }
 
-        if (isSuccess)
+        if (IsSuccess)
         {
             value += speed * Time.deltaTime;
             angle = -value / 100 * 360;
             arrow.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             return;
         }
-        ////½ÇÆÐ
+        ////ï¿½ï¿½ï¿½ï¿½
         //if (value >= checkPoint[checkCnt]+checkRange*2)
         //{
         //    StartCoroutine(Penalty());
@@ -96,7 +105,8 @@ public class CircleQuickTimeEvent : MonoBehaviour
 
                 if (check[0] && check[1] && check[2])
                 {
-                    isSuccess = true;
+                    OnSuccess?.Invoke();
+                    IsSuccess = true;
                     selfCanvas.gameObject.SetActive(false);
                 }
 
@@ -129,6 +139,8 @@ public class CircleQuickTimeEvent : MonoBehaviour
         circle[2].color = Color.grey;
 
         panaltyTime = false;
+        
+        IsSuccess = false;
     }
 
     private IEnumerator Penalty()
@@ -145,4 +157,8 @@ public class CircleQuickTimeEvent : MonoBehaviour
         spaceUI2.gameObject.SetActive(!spaceUI2.gameObject.activeSelf);
     }
 
+    public void SetActiveMission()
+    {
+        selfCanvas.gameObject.SetActive(true);
+    }
 }

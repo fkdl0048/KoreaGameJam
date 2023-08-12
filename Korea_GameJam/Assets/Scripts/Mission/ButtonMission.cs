@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ButtonMission : BaseMission
 {
+    [SerializeField] private SpaceBarQuickTimeEvent subMission;
     public bool IsStart { get; set; }
     
     private Camera mainCamera;
@@ -28,11 +29,14 @@ public class ButtonMission : BaseMission
     {
         if (IsStart)
         {
-            // temp
             if (Input.GetMouseButtonDown(0))
             {
-                MissionEnd();
                 IsStart = false;
+                subMission.SetActiveMission();
+                subMission.OnSuccess += () =>
+                {
+                    MissionEnd();
+                };
             }
             
         }

@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,8 +9,10 @@ using UnityEngine.UI;
 
 public class SpaceBarQuickTimeEvent : MonoBehaviour
 {
+    public Action OnSuccess;
+    
     public int max;
-    public int attack;  //1ÃÊ¿¡ ´â´Â ¾ç
+    public int attack;  //1ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
 
     public Image bar;
     public Image edge_l;
@@ -36,9 +39,20 @@ public class SpaceBarQuickTimeEvent : MonoBehaviour
     private float timer = 0f;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         StartCoroutine(SpaceUiBlink());
+
+        ValueReset();
+        OnSuccess = null;
+    }
+
+    private void ValueReset()
+    {
+        isSuccess = false;
+        gage = 0;
+        timer = 0f;
+        spaceBarCnt = 0;
     }
 
     // Update is called once per frame
@@ -79,6 +93,8 @@ public class SpaceBarQuickTimeEvent : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         selfCanvas.gameObject.SetActive(false);
+        
+        OnSuccess?.Invoke();
     }
 
 
@@ -94,5 +110,10 @@ public class SpaceBarQuickTimeEvent : MonoBehaviour
         spaceUI2.gameObject.SetActive(!spaceUI2.gameObject.activeSelf);
         yield return new WaitForSeconds(0.3f);
         StartCoroutine(SpaceUiBlink());
+    }
+    
+    public void SetActiveMission()
+    {
+        selfCanvas.gameObject.SetActive(true);
     }
 }

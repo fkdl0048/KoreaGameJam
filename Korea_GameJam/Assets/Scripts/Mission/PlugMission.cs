@@ -9,6 +9,8 @@ public class PlugMission : BaseMission
     [SerializeField] private GameObject prevPlug;
     [SerializeField] private GameObject nextPlug;
     
+    [SerializeField] private CircleQuickTimeEvent subMission;
+    
     public override void MissionStart()
     {
         base.MissionStart();
@@ -18,11 +20,15 @@ public class PlugMission : BaseMission
     
     public override void MissionEnd()
     {
-        base.MissionEnd();
-        
+        subMission.SetActiveMission();
         prevPlug.SetActive(false);
         nextPlug.SetActive(true);
         
-        dragPlug.IsStart = false;
+        subMission.OnSuccess += () =>
+        {
+            base.MissionEnd();
+            
+            dragPlug.IsStart = false;
+        };
     }
 }

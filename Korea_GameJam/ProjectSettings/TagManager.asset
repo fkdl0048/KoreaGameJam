@@ -8,6 +8,7 @@ TagManager:
   - Selectable
   - Mission
   - MissionObject
+  - Ignore
   layers:
   - Default
   - TransparentFX
