@@ -24,9 +24,12 @@ public class SwitchMission : BaseMission
             return;
         }
         
+        IsStart = false;
+        
         var clip = Resources.Load<AudioClip>("Sound/Effect/Lever");
         GameManager.Instance.PlayEffect(clip);
 
-        switchLever.transform.DOLocalRotate(new Vector3(-160, 0f, 0f), 0.3f).onComplete += () => MissionEnd();
+        MissionEnd();
+        switchLever.transform.DOLocalRotate(new Vector3(-160, 0f, 0f), 0.3f);
     }
 }

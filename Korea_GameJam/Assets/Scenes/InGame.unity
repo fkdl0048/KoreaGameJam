@@ -4873,7 +4873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1643518611}
-  timeLimit: 10
+  timeLimit: 120
 --- !u!114 &1665975710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1665975710, guid: 3e20bac3ad6a91d409cebec7905b0cd1, type: 3}
