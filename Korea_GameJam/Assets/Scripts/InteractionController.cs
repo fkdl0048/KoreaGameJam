@@ -26,6 +26,11 @@ public class InteractionController : MonoBehaviour
                 {
                     hit.collider.GetComponent<BaseMission>().MissionStart();
                 }
+                
+                if (hit.collider.CompareTag("MissionObject"))
+                {
+                    hit.collider.GetComponent<IInteraction>().Interaction();
+                }
             }
         }
     }
