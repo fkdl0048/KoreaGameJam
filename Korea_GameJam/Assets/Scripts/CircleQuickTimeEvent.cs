@@ -21,7 +21,7 @@ public class CircleQuickTimeEvent : MonoBehaviour
     [SerializeField]
     private bool isSuccess = false;
     [SerializeField]
-    private int checkCnt = 0;
+    private bool[] check = new bool[3];
     [SerializeField]
     bool panaltyTime = false;
 
@@ -32,7 +32,7 @@ public class CircleQuickTimeEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     private void Awake()
@@ -47,51 +47,58 @@ public class CircleQuickTimeEvent : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        if(panaltyTime==true)
+    {
+        if (panaltyTime == true)
         {
             return;
         }
 
-        //실패
-        if (value >= checkPoint[checkCnt]+checkRange*2)
-        {
-            StartCoroutine(Penalty());
-        }
-        else
+        if (isSuccess)
         {
             value += speed * Time.deltaTime;
             angle = -value / 100 * 360;
             arrow.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                CheckQTE();
-            }
-
+            return;
         }
+        ////실패
+        //if (value >= checkPoint[checkCnt]+checkRange*2)
+        //{
+        //    StartCoroutine(Penalty());
+        //}
+        //else
+        //{
+        value += speed * Time.deltaTime;
+        angle = -value / 100 * 360;
+        arrow.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CheckQTE();
+        }
+
+        //}
     }
     public void CheckQTE()
     {
-        Debug.Log("now value " + value);
-        Debug.Log("now check " + checkPoint[checkCnt]);
-        if (value >= checkPoint[checkCnt] && value <= checkPoint[checkCnt] + checkRange)
-        {
-            circle[checkCnt].color = Color.green;
-            checkCnt++;
 
-            if(checkCnt==3)
+        for (int i = 0; i < 3; i++)
+        {
+            if (value >= checkPoint[i] && value <= checkPoint[i] + checkRange)
             {
-                checkCnt = 0;
-                isSuccess = true;
-                selfCanvas.gameObject.SetActive(false);
+                circle[i].color = Color.green;
+                check[i] = true;
+
+                if (check[0] && check[1] && check[2])
+                {
+                    isSuccess = true;
+                    selfCanvas.gameObject.SetActive(false);
+                }
+
+                return;
             }
         }
-        //실패
-        else
-        {
-            StartCoroutine(Penalty());
-        }
+
+        StartCoroutine(Penalty());
     }
 
 
@@ -107,7 +114,9 @@ public class CircleQuickTimeEvent : MonoBehaviour
 
         value = 0;    //0~100
         angle = 0;    //0~360
-        checkCnt = 0;
+        check[0] = false;
+        check[1] = false;
+        check[2] = false;
 
         circle[0].color = Color.grey;
         circle[1].color = Color.grey;
