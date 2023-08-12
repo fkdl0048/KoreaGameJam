@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -11,19 +12,18 @@ public class BaseMission : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Vector3 cameraPosition;
     [SerializeField] private Vector3 cameraRotation;
+    
+    public Action OnMissionEnd;
 
     public bool IsClear { get; set; } = false;
     
     private Vector3 cameraPositionOrigin;
     private Vector3 cameraRotationOrigin;
     
-    private void Start()
+    public void Start()
     {
         cameraPositionOrigin = Camera.main.transform.position;
         cameraRotationOrigin = Camera.main.transform.eulerAngles;
-        
-        Debug.Log(cameraPositionOrigin);
-        Debug.Log(cameraRotationOrigin);
     }
 
     public virtual void MissionStart()
@@ -37,6 +37,8 @@ public class BaseMission : MonoBehaviour
         DOVirtual.DelayedCall(0.5f, () => MoveCameraOrigin());
         
         IsClear = true;
+        
+        OnMissionEnd?.Invoke();
     }
     
     private void MoveCamera()

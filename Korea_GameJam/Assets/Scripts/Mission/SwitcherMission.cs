@@ -12,9 +12,14 @@ public class SwitcherMission : BaseMission
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider>();
+    }
+    
+    private void Start()
+    {
+        base.Start();
         
         switcherButtons[0].OnMouseDown();
-    }
+    } 
 
     public override void MissionStart()
     {

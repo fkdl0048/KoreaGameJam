@@ -33,6 +33,10 @@ public class SwitcherButton : MonoBehaviour
     private void Awake()
     {
         switcherMission = GetComponentInParent<SwitcherMission>();
+    }
+
+    private void Start()
+    {
         originPosition = transform.position;
     }
 
@@ -53,6 +57,4 @@ public class SwitcherButton : MonoBehaviour
     {
         transform.DOMove(originPosition, 0.1f);
     }
-    
-    //
 }
