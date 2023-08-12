@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class KeyDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
-
+    public GameObject key;
     public float dragSpeed;
     [SerializeField]
     private Vector3 beginDragPoint;
@@ -41,15 +41,14 @@ public class KeyDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         if (beginDragPoint.x < Input.mousePosition.x)
         {
-            rt.Rotate(new Vector3(0, 0, dragSpeed * Time.deltaTime));
+            rt.Rotate(new Vector3(0, 0, -dragSpeed * Time.deltaTime));
+            //key.Rotate()
             dragValue += dragSpeed * Time.deltaTime;
         }
         else
         {
-            rt.Rotate(new Vector3(0, 0, -dragSpeed * Time.deltaTime));
+            rt.Rotate(new Vector3(0, 0, +dragSpeed * Time.deltaTime));
             dragValue += dragSpeed * Time.deltaTime;
         }
-
-
     }
 }

@@ -10,6 +10,8 @@ public class CircleQuickTimeEvent : MonoBehaviour
     public Canvas selfCanvas;
     public RectTransform arrow;
 
+    public Image spaceUI1;
+    public Image spaceUI2;
 
     public Image[] circle = new Image[3];
 
@@ -67,12 +69,13 @@ public class CircleQuickTimeEvent : MonoBehaviour
         //}
         //else
         //{
+
         value += speed * Time.deltaTime;
         angle = -value / 100 * 360;
         arrow.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
+        {   
             CheckQTE();
         }
 
@@ -80,6 +83,7 @@ public class CircleQuickTimeEvent : MonoBehaviour
     }
     public void CheckQTE()
     {
+        StartCoroutine(SpaceUiBlink());
 
         for (int i = 0; i < 3; i++)
         {
@@ -130,6 +134,13 @@ public class CircleQuickTimeEvent : MonoBehaviour
         panaltyTime = true;
         yield return new WaitForSeconds(1f);
         SetCheckPointValue();
+    }
+
+    private IEnumerator SpaceUiBlink()
+    {
+        spaceUI2.gameObject.SetActive(!spaceUI2.gameObject.activeSelf);
+        yield return new WaitForSeconds(0.5f);
+        spaceUI2.gameObject.SetActive(!spaceUI2.gameObject.activeSelf);
     }
 
 }

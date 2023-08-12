@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+    [SerializeField]
+    private Transform origin;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        origin = transform;
     }
 
     // Update is called once per frame

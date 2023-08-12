@@ -22,6 +22,10 @@ public class SpaceBarQuickTimeEvent : MonoBehaviour
     public Canvas selfCanvas;
 
 
+    public Image spaceUI1;
+    public Image spaceUI2;
+
+
     [SerializeField]
     private float gage = 0;
     [SerializeField]
@@ -34,7 +38,7 @@ public class SpaceBarQuickTimeEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(SpaceUiBlink());
     }
 
     // Update is called once per frame
@@ -83,5 +87,12 @@ public class SpaceBarQuickTimeEvent : MonoBehaviour
         bar.color = _color;
         edge_bar.color = _color;
         edge_l.color = _color;
+    }
+
+    private IEnumerator SpaceUiBlink()
+    {
+        spaceUI2.gameObject.SetActive(!spaceUI2.gameObject.activeSelf);
+        yield return new WaitForSeconds(0.3f);
+        StartCoroutine(SpaceUiBlink());
     }
 }
