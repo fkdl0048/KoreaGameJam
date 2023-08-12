@@ -4068,7 +4068,7 @@ PrefabInstance:
     - target: {fileID: 5778585542109677011, guid: 31fec1dbaedc63a4f84e6d60f0922fd3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e5e7ff0d52d43e54b80209e31a487f7a, type: 2}
+      objectReference: {fileID: 2100000, guid: 82894b7790e865741b76bc91fbcfdf77, type: 2}
     - target: {fileID: 6731877182642178826, guid: 31fec1dbaedc63a4f84e6d60f0922fd3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -4674,6 +4674,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 348552049417059354, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96e8cec8a3065ae44bdb72213aaf2150, type: 2}
+    - target: {fileID: 1264403757822711216, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96e8cec8a3065ae44bdb72213aaf2150, type: 2}
+    - target: {fileID: 1609192419749658365, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e52130027c5e834592452d9208d0444, type: 2}
+    - target: {fileID: 2536664233162228207, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e52130027c5e834592452d9208d0444, type: 2}
+    - target: {fileID: 4912224975302583103, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e52130027c5e834592452d9208d0444, type: 2}
     - target: {fileID: 5270163115784845279, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
       propertyPath: subMission
       value: 
@@ -4686,6 +4706,14 @@ PrefabInstance:
       propertyPath: inGameCameraController
       value: 
       objectReference: {fileID: 235620086}
+    - target: {fileID: 8117820518010549158, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96e8cec8a3065ae44bdb72213aaf2150, type: 2}
+    - target: {fileID: 8927164811023281057, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 96e8cec8a3065ae44bdb72213aaf2150, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebecd03fec4e183459d9ea27a8a4cafe, type: 3}
 --- !u!1001 &5986566853456714966

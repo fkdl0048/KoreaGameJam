@@ -24,6 +24,11 @@ public class PlugMission : BaseMission
         prevPlug.SetActive(false);
         nextPlug.SetActive(true);
         
+        var clip = Resources.Load<AudioClip>("Sound/Effect/Plug");
+        GameManager.Instance.PlayEffect(clip);
+        
+        Debug.Log(clip);
+        
         subMission.OnSuccess += () =>
         {
             base.MissionEnd();
