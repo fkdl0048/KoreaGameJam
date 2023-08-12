@@ -15,18 +15,12 @@ public class SwitcherMission : BaseMission
     {
         boxCollider = GetComponent<BoxCollider>();
     }
-    
-    private void Start()
-    {
-        base.Start();
-        
-        switcherButtons[0].OnMouseDown();
-    } 
 
     public override void MissionStart()
     {
         base.MissionStart();
         
+        switcherButtons[0].OnMouseDown();
         IsStart = true;
         boxCollider.enabled = false;
     }

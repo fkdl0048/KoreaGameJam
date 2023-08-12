@@ -6,6 +6,7 @@ using UnityEngine;
 public class MissionController : MonoBehaviour
 {
     [SerializeField] private BaseMission[] missions;
+    [SerializeField] private GameObject[] cubes;
 
     private void Awake()
     {
@@ -17,6 +18,12 @@ public class MissionController : MonoBehaviour
     
     private void AllMissionClearCheck()
     {
+        for (int i = 0; i < missions.Length; i++)
+        {
+            if (missions[i].IsClear)
+                cubes[i].SetActive(true);
+        }
+        
         for (int i = 0; i < 5; i++)
         {
             if (!missions[i].IsClear)

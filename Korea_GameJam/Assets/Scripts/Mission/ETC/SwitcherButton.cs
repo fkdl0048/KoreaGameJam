@@ -38,6 +38,7 @@ public class SwitcherButton : MonoBehaviour
     private void Start()
     {
         originPosition = transform.position;
+        ResetPosition();
     }
 
     public void OnMouseDown()
@@ -46,6 +47,9 @@ public class SwitcherButton : MonoBehaviour
         {
             return;
         }
+        
+        var clip = Resources.Load<AudioClip>("Sound/Effect/Plug");
+        GameManager.Instance.PlayEffect(clip);
         
         switcherMission.AllButtonOff();
         

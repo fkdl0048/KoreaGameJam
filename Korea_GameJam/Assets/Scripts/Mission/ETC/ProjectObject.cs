@@ -62,6 +62,10 @@ public class ProjectObject : MonoBehaviour
             transform.rotation = TargetObject.transform.rotation;
             IsStart = false;
             IsClear = true;
+            
+            var clip = Resources.Load<AudioClip>("Sound/Effect/Lever");
+            GameManager.Instance.PlayEffect(clip);
+            
             return;
         }
         
