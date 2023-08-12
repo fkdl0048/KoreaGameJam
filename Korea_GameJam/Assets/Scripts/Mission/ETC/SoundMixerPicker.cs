@@ -42,15 +42,15 @@ public class SoundMixerPicker : MonoBehaviour, IInteraction
         Vector3 mousePos = GetMouseWorldPos() + offSet;
 
         transform.position = new Vector3(transform.position.x, transform.position.y , mousePos.z);
-
-        transform.position = new Vector3(transform.position.x, transform.position.y,
-            Mathf.Clamp(transform.position.z, -2.75f, -2.25f));
         
-        if (transform.position.z >= -2.30f)
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Clamp(transform.position.z, -3.6f, -3.1f));
+        
+        if (transform.position.z >= -3.1f)
         {
             IsPickerState = PickerState.Up;
         }
-        else if (transform.position.z <= -2.70f)
+        else if (transform.position.z <= -3.6f)
         {
             IsPickerState = PickerState.Down;
         }
